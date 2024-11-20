@@ -1,0 +1,266 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>数币“邮”爱，希望同行</title>
+    <style>
+        body {
+            overflow: hidden;
+        }
+
+        #background-container {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: -1;
+        }
+
+        #background-image {
+            width: 100%;
+            height: 100%;
+            object-fit: contain;
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+        }
+
+        #button1-image {
+            width: 15vw;
+            height: 15vw;
+            position: absolute;
+            top: 20px;
+            left: 52%;
+            z-index: 1;
+            cursor: pointer;
+        }
+
+        #car1-image {
+            width: 22vw;
+            height: 15vw;
+            position: absolute;
+            top: 145px;
+            left: 50%;
+            z-index: 1;
+            animation: car1-move 3s ease forwards;
+            animation-play-state: paused;
+        }
+
+        #button2-image {
+            width: 15vw;
+            height: 15vw;
+            position: absolute;
+            top: 350px;
+            left: 52%;
+            z-index: 1;
+            cursor: pointer;
+        }
+
+        #car2-image {
+            width: 22vw;
+            height: 15vw;
+            position: absolute;
+            top: 450px;
+            left: 50%;
+            z-index: 1;
+			animation: car1-move 3s ease forwards;
+			animation-play-state: paused;
+        }
+
+        #button3-image {
+            width: 15vw;
+            height: 15vw;
+            position: absolute;
+            top: 620px;
+            left: 52%;
+            z-index: 1;
+            cursor: pointer;
+        }
+
+        #car3-image {
+            width: 22vw;
+            height: 15vw;
+            position: absolute;
+            top: 735px;
+            left: 50%;
+            z-index: 1;
+			animation: car1-move 3s ease forwards;
+			animation-play-state: paused;
+        }
+			.fade-transition1,
+            .fade-transition2,
+            .fade-transition3 {
+                  transition: opacity 1s ease;
+              }
+
+        @keyframes car1-move {
+            from {
+                left: 50%;
+            }
+            to {
+                left: 28%;
+            }
+        }
+		@keyframes car2-move {
+		    from {
+		        left: 50%;
+		    }
+		    to {
+		        left: 28%;
+		    }
+		}
+		@keyframes car3-move {
+		    from {
+		        left: 50%;
+		    }
+		    to {
+		        left: 28%;
+		    }
+		}
+    </style>
+</head>
+
+<body>
+    <div id="background-container">
+        <img id="background-image" src="background.png" alt="竖屏背景图">
+    </div>
+
+    <div id="first">
+        <!-- 添加按钮1 -->
+        <img id="button1-image" src="button1.png" alt="第一个按钮图片" />
+        <!-- 添加初始隐藏的button1-after图片 -->
+        <img id="button1-after-image" src="button1-after.png" alt="第一个按钮点击后图片" 
+        style="display: none; 
+        position: absolute; top: 19px; 
+        left: 58%; width: 15vw; 
+        height: 15vw; z-index: 1;
+         cursor: pointer;">
+        <!-- 添加小车1 -->
+        <img id="car1-image" src="car.png" alt="第一个小车图片" />
+    </div>
+
+    <div id="second">
+        <!-- 添加按钮2 -->
+        <img id="button2-image" src="button1.png" alt="第二个按钮图片" />
+		<!-- 添加初始隐藏的button2-after图片 -->
+		<img id="button2-after-image" src="button1-after.png" alt="第二个按钮点击后图片" 
+		style="display: none; 
+		position: absolute; top: 350px; 
+		left: 58%; width: 15vw; 
+		height: 15vw; z-index: 1;
+		 cursor: pointer;">
+        <!-- 添加小车2 -->
+        <img id="car2-image" src="car.png" alt="第二个小车图片" />
+    </div>
+
+    <div id="third">
+        <!-- 添加按钮3 -->
+        <img id="button3-image" src="button1.png" alt="第三个按钮图片" />
+		<!-- 添加初始隐藏的button3-after图片 -->
+		<img id="button3-after-image" src="button1-after.png" alt="第三个按钮点击后图片" 
+		style="display: none; 
+		position: absolute; top: 620px; 
+		left: 58%; width: 15vw; 
+		height: 15vw; z-index: 1;
+		 cursor: pointer;">
+        <!-- 添加小车3 -->
+        <img id="car3-image" src="car.png" alt="第三个小车图片" />
+		
+    </div>
+	<span id="thank-you-text1" style="display: none; position: absolute; top: 260px; left: 45%; font-size: 24px; color: rgb(22, 48, 38); z-index: 1;">感谢您为希望小学建设助力</span>
+    <span id="thank-you-text2" style="display: none; position: absolute; top: 565px; left: 45%; font-size: 24px; color: rgb(22, 48, 38); z-index: 1;">感谢您为希望小学建设助力</span>
+    <span id="thank-you-text3" style="display: none; position: absolute; top: 860px; left: 45%; font-size: 24px; color: rgb(22, 48, 38); z-index: 1;">感谢您为希望小学建设助力</span>
+
+   <script>
+           // 已完成的动画数量
+           let completedAnimations = 0;
+   
+           document.getElementById('button1-image').addEventListener('click', function () {
+               // 隐藏原始按钮图片
+               this.style.display = 'none';
+   
+               // 显示并渐变显示button1-after图片
+               var button1AfterImage = document.getElementById('button1-after-image');
+               button1AfterImage.style.display = 'block';
+               button1AfterImage.classList.add('fade-transition1');
+               button1AfterImage.style.opacity = '1';
+   
+               // 触发小车图片的动画播放
+               var car1Image = document.getElementById('car1-image');
+               car1Image.style.animationPlayState = 'running';
+   
+               car1Image.addEventListener('animationend', function () {
+                   var thankYouText = document.getElementById('thank-you-text1');
+                   thankYouText.style.display = 'block';
+   
+                   // 增加已完成动画数量的计数
+                   completedAnimations++;
+   
+                   // 检查是否所有动画都已完成
+                   if (completedAnimations === 3) {
+                       setTimeout(function () {
+                           window.location.href = "https://fufukals.github.io/cera/ju";
+                       }, 500);
+                   }
+               });
+           });
+   
+           document.getElementById('button2-image').addEventListener('click', function () {
+               this.style.display = 'none';
+   
+        
+               var button1AfterImage = document.getElementById('button2-after-image');
+               button1AfterImage.style.display = 'block';
+               button1AfterImage.classList.add('fade-transition2');
+               button1AfterImage.style.opacity = '1';
+   
+               var car2Image = document.getElementById('car2-image');
+               car2Image.style.animationPlayState = 'running';
+   
+               car2Image.addEventListener('animationend', function () {
+                   var thankYouText = document.getElementById('thank-you-text2');
+                   thankYouText.style.display = 'block';
+   
+                   completedAnimations++;
+   
+                   if (completedAnimations === 3) {
+                       setTimeout(function () {
+                           window.location.href = "https://fufukals.github.io/cera/ju";
+                       }, 500);
+                   }
+               });
+           });
+   
+           document.getElementById('button3-image').addEventListener('click', function () {
+               this.style.display = 'none';
+   
+               var button1AfterImage = document.getElementById('button3-after-image');
+               button1AfterImage.style.display = 'block';
+               button1AfterImage.classList.add('fade-transition3');
+               button1AfterImage.style.opacity = '1';
+   
+               var car3Image = document.getElementById('car3-image');
+               car3Image.style.animationPlayState = 'running';
+   
+               car3Image.addEventListener('animationend', function () {
+                   var thankYouText = document.getElementById('thank-you-text3');
+                   thankYouText.style.display = 'block';
+   
+                   completedAnimations++;
+   
+                   if (completedAnimations === 3) {
+                       setTimeout(function () {
+                           window.location.href = "https://fufukals.github.io/cera/ju";
+                       }, 500);
+                   }
+               });
+           });
+       </script>
+
+</body>
+
+</html>
